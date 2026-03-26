@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Figtree";
+  src: url("/assets/fonts/Figtree.woff2") format("woff2");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    --background: 1 0 0;
+    --foreground: 0.12 0.005 285;
+    --card: 1 0 0;
+    --card-foreground: 0.12 0.005 285;
+    --popover: 1 0 0;
+    --popover-foreground: 0.12 0.005 285;
+    --primary: 0.12 0.005 285;
+    --primary-foreground: 1 0 0;
+    --secondary: 0.96 0.008 80;
+    --secondary-foreground: 0.12 0.005 285;
+    --muted: 0.95 0.01 80;
+    --muted-foreground: 0.5 0.01 80;
+    --accent: 0.78 0.065 80;
+    --accent-foreground: 0.12 0.005 285;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.9 0.012 80;
+    --input: 0.9 0.012 80;
+    --ring: 0.78 0.065 80;
+    --chart-1: 0.78 0.065 80;
+    --chart-2: 0.88 0.04 80;
+    --chart-3: 0.68 0.05 80;
+    --chart-4: 0.4 0.005 285;
+    --chart-5: 0.6 0.005 285;
+    --sidebar: 1 0 0;
+    --sidebar-foreground: 0.12 0.005 285;
+    --sidebar-primary: 0.12 0.005 285;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.95 0.01 80;
+    --sidebar-accent-foreground: 0.12 0.005 285;
+    --sidebar-border: 0.9 0.012 80;
+    --sidebar-ring: 0.78 0.065 80;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", "Figtree", "Inter", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Playfair Display", Georgia, serif;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: "Playfair Display", Georgia, serif;
+  }
+  .font-body {
+    font-family: "Plus Jakarta Sans", "Figtree", "Inter", system-ui, sans-serif;
+  }
+  .section-cream {
+    background-color: oklch(0.97 0.008 80);
+  }
+  .blob-float {
+    animation: blobFloat 8s ease-in-out infinite;
+  }
+  .photo-float {
+    animation: photoFloat 5s ease-in-out infinite;
+  }
+  .float-gentle {
+    animation: floatGentle 6s ease-in-out infinite;
+  }
+  .float-gentle-delayed {
+    animation: floatGentle 7s ease-in-out infinite;
+    animation-delay: 1.5s;
+  }
+  .float-gentle-slow {
+    animation: floatGentle 9s ease-in-out infinite;
+    animation-delay: 3s;
+  }
+  .wobble {
+    animation: floatGentle 6s ease-in-out infinite;
+  }
+  .wobble-slow {
+    animation: floatGentle 7.5s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+  .wobble-slower {
+    animation: floatGentle 9s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatGentle {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+}
+
+@keyframes photoFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes blobFloat {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(-4px) rotate(-0.5deg);
+  }
+}
